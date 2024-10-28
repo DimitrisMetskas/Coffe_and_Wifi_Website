@@ -1,0 +1,49 @@
+{% include "header.html" %}
+
+<!-- Page Header-->
+<header class="masthead" style="background-image: url('{{post.img_url}}')">
+  <div class="container position-relative px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <div style="color:Salmon" class="post-heading">
+          <h1>{{ post.name }}</h1>
+          <h2 class="subheading">{{ post.location }}</h2>
+          <span class="meta">
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Post Content -->
+<article>
+  <div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <a>In the heart of the </a>
+        <a href="{{ post.map_url }}">  {{ post.location }} </a>
+          there is {{ post.name }}, a Fantastic Coffe Shop!
+        <ul>
+          <li> Sockets Number: {{ post.has_sockets }}</li>
+          <li> Toilet Number: {{ post.has_toilet }}</li>
+          <li> Wi-Fi Signal: {{ post.has_wifi }}</li>
+          <li> Call Capacity: {{ post.can_take_calls }}</li>
+          <li> Number of Seats: {{ post.seats }}</li>
+          <li> The price of the coffee:  {{ post.coffee_price }}</li>
+        </ul>
+
+        <div class="d-flex justify-content-end mb-4">
+          <!-- TODO: Editing posts-->
+          <a
+            class="btn float-right"
+            href="{{ url_for('edit_post', post_id=post.id) }}"
+            >Edit Post</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+{% include "footer.html" %}
